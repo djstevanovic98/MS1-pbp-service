@@ -1,0 +1,3 @@
+docker run --name pbp-service -d -p 8085:8080 -t stats-service:latest
+
+!!!NAPOMENA NAMAPIRAO SI PORT 8085
