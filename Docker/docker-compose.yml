@@ -1,0 +1,28 @@
+version: "3"
+services:
+  pg-game:
+    image: "postgres"
+    environment:
+      - POSTGRES_USER=game
+      - POSTGRES_PASSWORD=game!
+      - POSTGRES_DB=game
+    ports:
+      - "54320:5432"
+    volumes:
+      - pg-game-vol:/var/lib/postgresql/data
+
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    hostname: rabbitmq
+    volumes:
+      - ./rabbitmq/data:/var/lib/rabbitmq/mnesia/rabbit@rabbitmq
+      - ./rabbitmq/log:/var/log/rabbitmq/log
+    ports:
+      - 5672:5672
+      - 15672:15672
+      
+# docker volume create pg-game-vol
+volumes: 
+  pg-game-vol:
+    external: true

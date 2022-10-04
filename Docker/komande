@@ -1,0 +1,2 @@
+docker-compose up -d
+snap run dbeaver-ce
